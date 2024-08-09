@@ -31,8 +31,8 @@ DNS서버가 없을 경우, 노드 사이에 식별하기 위해 `/etc/hosts` �
 - overlay
 
 ### nmcli
-- [ ] nmcli ??
-
+- [x] nmcli calico 에서 사용하는 NetworkInterface 설치
+  - https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#before-you-begin
 ```shell
 nmcli con add con-name eth1 ipv4.addresses 192.168.10.10/24 type ethernet ifname eth1 ipv4.method manual
 nmcli con sh
@@ -64,6 +64,7 @@ ip a s eth1
   - `tigera-operator.yaml` 을 `kubectl create` 로 실행하고 위 `yaml` 을 `kubectl create -f` 로 한번 더 실행하면 터널링네트워크가 생성된다.
 
 #### calico 설치
+> [reflink](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart#install-calico)
 ```shell
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
 ```
